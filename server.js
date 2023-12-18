@@ -9,9 +9,21 @@ connectToDatabase();
 
 
 
-app.post('/patient')
 
-mongoose.connect('mongodb://localhost:27017/emrs', { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.
+connect('mongodb+srv://sgfordjour:l1Eu0mBQKIAH8tRr@kay.ocovk1l.mongodb.net/node-API?retryWrites=true&w=majority')
+.then(() => {
+    console.log('connected to mongoDB')
+
+    app.listen(3000, () => {
+        console.log('Node api is running on port 3000')
+    })
+
+}).catch((error) =>{
+    console.log(error)
+
+})
 
 app.use('/api/patients', patientRoutes);
 
