@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const connectToDatabase = require('./services/database');
 const mongoose = require('mongoose');
+const Patient = require('./models/patient');
 const patientRoutes = require('./routes/patientRoutes');
 app.use(express.json());
+connectToDatabase();
+
 
 
 app.post('/patient')
